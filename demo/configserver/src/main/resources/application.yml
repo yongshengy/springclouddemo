@@ -8,11 +8,26 @@ spring:
       server:
         git:
           uri: https://github.com/yongshengy/springclouddemo.git
-          searchPaths: config
-          username: yongshengy
-          password: xxxx
+          searchPaths: demo/config
+#          username: yongshengy
+#          password: xxx
       label: master
+      profile: default
+#    Auto refresh Spring cloud bus
+    bus:
+      trace:
+        enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
